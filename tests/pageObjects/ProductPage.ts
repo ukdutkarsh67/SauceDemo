@@ -24,4 +24,6 @@ export class ProductPage{
     public async clickShoppingCart(){
         await this.shoppingCart.click();
     }
+
+    
 }

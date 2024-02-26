@@ -20,10 +20,6 @@ test.describe.parallel('login tests',async () => {
     });
     test.only('e2e flow',async({page})=>{
         await loginPage.login("standard_user","secret_sauce");
-        //await homePage.clickMenuSection();
-        //await page.waitForTimeout(3000);
-        // await homePage.clickMenuList('About');
-        // await homePage.verifyClickPage();
         await homePage.selectFilter('za');
         await homePage.addToCart('Sauce Labs Bolt T-Shirt');
         await homePage.addToCart('Sauce Labs Onesie');
@@ -36,6 +32,8 @@ test.describe.parallel('login tests',async () => {
         await checkoutPage.verifyCheckoutPage();
         await checkoutPage.fillDetails('utkarsh','dwivedi','208019');
         await checkoutPage.clickContinue();
+        await checkoutPage.priceValidation();
+        await checkoutPage.clickFinishButton();
         await page.pause();
     })
 

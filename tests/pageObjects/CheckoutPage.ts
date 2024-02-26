@@ -7,6 +7,9 @@ export class CheckoutPage{
     private readonly lastName:Locator;
     private readonly pincode:Locator;
     private readonly continueButton:Locator;
+    private readonly productPrice:Locator;
+    private readonly totalPrice:Locator;
+    private readonly finishButton:Locator;
 
     constructor(page: Page){
         this.page=page;
@@ -15,6 +18,9 @@ export class CheckoutPage{
         this.lastName=page.locator('[data-test="lastName"]');
         this.pincode=page.locator('[data-test="postalCode"]');
         this.continueButton=page.locator('[data-test="continue"]');
+        this.productPrice=page.locator('[class="inventory_item_price"]');
+        this.totalPrice=page.locator('[class="summary_subtotal_label"]');
+        this.finishButton=page.locator('[data-test="finish"]');
     }
     public async verifyCheckoutPage(){
         await expect(this.CheckoutPage).toBeVisible();
@@ -26,8 +32,29 @@ export class CheckoutPage{
         await this.pincode.fill(pinCode);
     }
 
+
     public async clickContinue(){
         await this.continueButton.click();
+    }
+
+    public async priceValidation(){
+        const productPriceCount=await this.productPrice.count();
+        let totalAmount:number=0;
+        for(let i=0;i<productPriceCount;i++){
+            const priceText:any=await this.productPrice.nth(i).textContent();
+            const price=priceText.split('$');
+            let priceNo=+price[1];
+            totalAmount=totalAmount+priceNo;
+        }
+        const totalPriceText:any=await this.totalPrice.textContent();
+        const total_price=totalPriceText.split('$')
+        let total_Price=+total_price[1];
+        await expect(total_Price).toBe(totalAmount);
+        
+    }
+
+    public async clickFinishButton(){
+        await this.finishButton.click();
     }
 
 }
