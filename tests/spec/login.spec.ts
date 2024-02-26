@@ -1,6 +1,5 @@
 import {test, expect} from '@playwright/test';
 import { LoginPage } from '../pageObjects/LoginPage';
-import { chromium } from '@playwright/test';
 import ExcelJS from 'exceljs';
 test.describe.parallel('login tests',async () => {
     let loginPage;

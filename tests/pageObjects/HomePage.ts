@@ -8,6 +8,7 @@ export class HomePage{
     private readonly productList:Locator;
     private readonly shoppingCart:Locator;
     private readonly productClickCount:Locator;
+    private readonly aboutUs:Locator;
     private prodCount:any;
 
     constructor(page: Page){
@@ -18,6 +19,7 @@ export class HomePage{
         this.productList=page.locator('.inventory_item .inventory_item_description');
         this.shoppingCart=page.locator('[class="shopping_cart_link"]');
         this.productClickCount=page.locator('.shopping_cart_link span');
+        this.aboutUs=page.getByRole('link', { name: 'Pricing' });
     }
 
     public async clickMenuSection(){
@@ -25,7 +27,9 @@ export class HomePage{
     }
 
     public async clickMenuList(menuName: string){
+
         const menuListCount=await this.menuList.count();
+        console.log(menuListCount);
         for(let i=0;i<menuListCount;i++){
             const menuListName=await this.menuList.nth(i).textContent();
             if(menuListName===menuName){
@@ -69,6 +73,10 @@ export class HomePage{
                 break;
             }
         }
+    }
+
+    public async verifyClickPage(){
+        await expect(this.aboutUs).toHaveText('Pricing');
     }
 
 }
