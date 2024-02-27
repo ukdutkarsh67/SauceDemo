@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 import { LoginPage } from '../pageObjects/LoginPage';
 import ExcelJS from 'exceljs';
 test.describe.parallel('login tests',async () => {
-    let loginPage;
+    let loginPage:LoginPage;
     test.beforeEach(async ({ page }) => {
       loginPage=new LoginPage(page)
       await loginPage.goto();

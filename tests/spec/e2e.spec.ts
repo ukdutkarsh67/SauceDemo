@@ -5,11 +5,11 @@ import { ProductPage } from '../pageObjects/ProductPage';
 import { CartPage } from '../pageObjects/CartPage';
 import { CheckoutPage } from '../pageObjects/CheckoutPage';
 test.describe.parallel('login tests',async () => {
-    let loginPage;
-    let homePage;
-    let productpage;
-    let cartPage;
-    let checkoutPage;
+    let loginPage:LoginPage;
+    let homePage:HomePage;
+    let productpage:ProductPage;
+    let cartPage:CartPage;
+    let checkoutPage:CheckoutPage;
     test.beforeEach(async ({ page }) => {
       loginPage=new LoginPage(page);
       homePage=new HomePage(page);
@@ -34,7 +34,7 @@ test.describe.parallel('login tests',async () => {
         await checkoutPage.clickContinue();
         await checkoutPage.priceValidation();
         await checkoutPage.clickFinishButton();
-        await page.pause();
+        await checkoutPage.orderPlacedConfirm();
     })
 
 });

@@ -10,6 +10,7 @@ export class CheckoutPage{
     private readonly productPrice:Locator;
     private readonly totalPrice:Locator;
     private readonly finishButton:Locator;
+    private readonly orderPlace:Locator;
 
     constructor(page: Page){
         this.page=page;
@@ -21,6 +22,7 @@ export class CheckoutPage{
         this.productPrice=page.locator('[class="inventory_item_price"]');
         this.totalPrice=page.locator('[class="summary_subtotal_label"]');
         this.finishButton=page.locator('[data-test="finish"]');
+        this.orderPlace=page.locator('[class="complete-header"]');
     }
     public async verifyCheckoutPage(){
         await expect(this.CheckoutPage).toBeVisible();
@@ -55,6 +57,10 @@ export class CheckoutPage{
 
     public async clickFinishButton(){
         await this.finishButton.click();
+    }
+
+    public async orderPlacedConfirm(){
+        await expect(this.orderPlace).toHaveText('Thank you for your order!');
     }
 
 }
