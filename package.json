@@ -3,13 +3,33 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "allure-Report":"npx allure serve allure-results",
+    "test": "npx nyc --reporter=lcov --reporter=text playwright test",
+    "coverage": "npx nyc report --reporter=text-summary"
+  },
+  "nyc": {
+    "report-dir": "./coverage",
+    "all-at-once": false,
+    "reporters": [
+      "text",
+      "html"
+    ],
+    "reporter-options": {
+      "html": {
+        "dest": "./coverage/"
+      }
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.41.2",
-    "@types/node": "^20.11.20"
+    "@types/node": "^20.11.20",
+    "allure-commandline": "^2.27.0",
+    "allure-playwright": "^2.13.0",
+    "nyc": "^15.1.0"
   },
   "dependencies": {
     "exceljs": "^4.4.0",

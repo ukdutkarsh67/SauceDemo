@@ -27,7 +27,7 @@ test.describe.parallel('login tests',async () => {
       userDetails=await readexcelFile.getUserDetails();
       await loginPage.goto();
     });
-    test.only('e2e flow',async({page})=>{
+    test('e2e flow',async({page})=>{
 
         await test.step('Login credentials', async () => {
             await loginPage.login(userCredentials[0], userCredentials[1]);
