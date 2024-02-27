@@ -12,12 +12,12 @@ test.describe.parallel('login tests',async () => {
       userData=await readexcelFile.getUserCredentials();
     });
     
-    test('Login with valid account credentials', async ({  }) => {
+    test('Login with valid account credentials', async () => {
         await loginPage.login(userData[0],userData[1]);
         await loginPage.verifyPageLoaded();
     });
     
-    test('Login with invalid account credentials', async ({  }) => {
+    test('Login with invalid account credentials', async () => {
         await loginPage.login(userData[0]+'11',userData[1]+'11');
         await loginPage.verifyErrorMessage();
     });
