@@ -9,7 +9,7 @@ export class ProductPage{
     constructor(page: Page){
         this.page=page;
         this.productName=page.locator('[class="inventory_details_name large_size"]');
-        this.addProduct=page.getByText('Add to cart');
+        this.addProduct=page.locator('.inventory_details_desc_container > button');
         this.shoppingCart=page.locator('[class="shopping_cart_link"]');
     }
 
