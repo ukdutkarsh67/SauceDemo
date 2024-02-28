@@ -1,5 +1,7 @@
-# SauceDemo
-
+# Saucedemo Testing README
+ 
+This README provides instructions for testing the Saucedemo website, focusing on the Login, Logout functionality, Homepage, Shopping Cart, Checkout, and Product Page sections.
+ 
 ## Prerequisites
 - Ensure you have a modern web browser installed (Google Chrome, Firefox, etc.).
 - Have a stable internet connection.
@@ -7,7 +9,7 @@
 ## Test Scenarios
  
 ### 1. Login and Logout
-1. Navigate to the Saucedemo website: [https://www.saucedemo.com/v1](https://www.saucedemo.com/).
+1. Navigate to the Saucedemo website: [https://www.saucedemo.com/](https://www.saucedemo.com/).
 2. Enter valid credentials for login.
 3. Verify successful login.
 4. Logout and confirm successful logout.
@@ -35,9 +37,10 @@
 4. Complete the checkout process.
 5. Verify successful order placement.
  
-## Running the Tests
-1. Execute the tests manually by following the steps in each scenario.
-2. Use automated testing tools (e.g., Selenium) for a more efficient and repeatable process.
+## Running the Tests with Playwright
+1. Install Playwright using `npm install playwright`.
+2. Write Playwright scripts for each test scenario.
+3. Execute the scripts using the `npx playwright test` command.
  
 ## Troubleshooting
 - If any step fails, investigate the issue by checking for error messages, console logs, or network requests.
