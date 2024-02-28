@@ -1,0 +1,1 @@
+2024-02-28 12:03:14:314 info: Successfully logged in to the application
