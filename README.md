@@ -1,6 +1,6 @@
-# Saucedemo Testing README
+# Saucedemo
  
-This README provides instructions for testing the Saucedemo website, focusing on the Login, Logout functionality, Homepage, Shopping Cart, Checkout, and Product Page sections.
+This is a sample test automation framework for www.saucedemo.com. SauceDemo is a sample website built by SauceLabs that allows users to practice browser automation.
  
 ## Prerequisites
 - Ensure you have a modern web browser installed (Google Chrome, Firefox, etc.).
@@ -9,7 +9,7 @@ This README provides instructions for testing the Saucedemo website, focusing on
 ## Test Scenarios
  
 ### 1. Login and Logout
-1. Navigate to the Saucedemo website: [https://www.saucedemo.com/](https://www.saucedemo.com/).
+1. Navigate to the Saucedemo website: [https://www.saucedemo.com/v1/](https://www.saucedemo.com/v1/).
 2. Enter valid credentials for login.
 3. Verify successful login.
 4. Logout and confirm successful logout.

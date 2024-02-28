@@ -1,0 +1,4 @@
+2024-02-28 11:12:22:1222 info: Successfully logged in to the application
+2024-02-28 11:12:22:1222 info: filter Selected
+2024-02-28 11:12:24:1224 info: product added
+2024-02-28 11:12:26:1226 info: Order Placed
