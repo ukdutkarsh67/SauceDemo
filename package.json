@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "allure-Report":"npx allure serve allure-results",
+    "allure-Report": "npx allure serve allure-results",
     "test": "npx nyc --reporter=lcov --reporter=text playwright test",
     "coverage": "npx nyc report --reporter=text-summary"
   },
@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "exceljs": "^4.4.0",
+    "winston": "^3.11.0",
     "xlsx": "^0.18.5"
   }
 }

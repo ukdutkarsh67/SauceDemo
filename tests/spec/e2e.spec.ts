@@ -5,6 +5,7 @@ import { ProductPage } from '../pageObjects/ProductPage';
 import { CartPage } from '../pageObjects/CartPage';
 import { CheckoutPage } from '../pageObjects/CheckoutPage';
 import { readExcelFile } from '../../util/readExcelFile';
+import * as log from '../../util/logger';
 test.describe.parallel('login tests',async () => {
     let loginPage:LoginPage;
     let homePage:HomePage;
@@ -31,15 +32,18 @@ test.describe.parallel('login tests',async () => {
 
         await test.step('Login credentials', async () => {
             await loginPage.login(userCredentials[0], userCredentials[1]);
+            await log.Logger.info( "Successfully logged in to the application" );
         });
 
         await test.step('Select filter', async () => {
             await homePage.selectFilter('za');
+            await log.Logger.info('filter Selected');
         });
 
         await test.step('Add products to cart', async () => {
             await homePage.addToCart(productName[0]);
             await homePage.addToCart(productName[1]);
+            await log.Logger.info('product added');
         });
 
         await test.step('Open product in detail', async () => {
@@ -80,6 +84,7 @@ test.describe.parallel('login tests',async () => {
 
         await test.step('Verify order placed confirmation', async () => {
             await checkoutPage.orderPlacedConfirm();
+            await log.Logger.info('Order Placed')
         });
 
     })

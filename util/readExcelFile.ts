@@ -1,6 +1,5 @@
 import Exceljs from "exceljs";
 
-
 export class readExcelFile{
     public async getUserCredentials(){
         const workBook=new Exceljs.Workbook();
@@ -59,7 +58,6 @@ export class readExcelFile{
                 data.push(cellValue);
             }
         }
-
         return data;
     }
 }
